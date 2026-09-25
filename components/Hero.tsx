@@ -1,8 +1,114 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import useEmblaCarousel from "embla-carousel-react";
-import { ArrowDown, ArrowRight, BriefcaseBusiness, Camera, MessageCircle } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
-import { heroSlides } from "@/data/site-data";
-export function Hero() { const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }); const [selected, setSelected] = useState(0); const onSelect = useCallback(() => { if (emblaApi) setSelected(emblaApi.selectedScrollSnap()); }, [emblaApi]); useEffect(() => { if (!emblaApi) return; emblaApi.on("select", onSelect); const timer = window.setInterval(() => emblaApi.scrollNext(), 6500); return () => { emblaApi.off("select", onSelect); window.clearInterval(timer); }; }, [emblaApi, onSelect]); return <section id="home" className="relative h-[720px] overflow-hidden bg-[#0a1628] text-white md:h-[820px]"><div ref={emblaRef} className="h-full overflow-hidden"><div className="flex h-full">{heroSlides.map((slide, index) => <div className="relative min-w-0 flex-[0_0_100%]" key={slide.title}><Image src={slide.image} alt="Asteria project skyline" fill priority={index === 0} className="object-cover" sizes="100vw" /><div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,13,24,.92)_0%,rgba(5,13,24,.62)_48%,rgba(5,13,24,.2)_100%)]" /><div className="relative mx-auto flex h-full max-w-7xl items-center px-6 pt-20"><div className={`max-w-3xl transition-all duration-1000 ${selected === index ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}`}><p className="mb-5 text-[11px] font-bold uppercase tracking-[0.32em] text-[#e0b75d]">{slide.kicker}</p><h1 className="font-heading text-5xl font-bold leading-[.98] tracking-[-0.05em] md:text-8xl">Asteria <span className="text-[#d7a84c]">-</span><br />{slide.title}</h1><p className="mt-8 max-w-lg text-base leading-7 text-white/70">We connect ambition with capability, delivering workforce and contracting solutions that move Qatar forward.</p><Link href="#contact" className="mt-9 inline-flex items-center gap-4 border-b border-[#d7a84c] pb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#e0b75d]">Start a conversation <ArrowRight size={16} /></Link></div></div></div>)}</div></div><div className="absolute bottom-9 left-6 right-6 mx-auto flex max-w-7xl items-end justify-between"><div className="flex gap-2">{heroSlides.map((slide, index) => <button aria-label={`Go to slide ${index + 1}`} key={slide.title} onClick={() => emblaApi?.scrollTo(index)} className={`h-1 transition-all ${selected === index ? "w-12 bg-[#d7a84c]" : "w-5 bg-white/40"}`} />)}</div><div className="hidden items-center gap-5 md:flex"><span className="text-[10px] uppercase tracking-[0.2em] text-white/50">Scroll to explore</span><ArrowDown className="text-[#d7a84c]" size={17} /></div></div><div className="absolute right-5 top-1/2 hidden -translate-y-1/2 flex-col gap-5 md:flex"><a href="#" aria-label="LinkedIn"><BriefcaseBusiness size={16} /></a><a href="#" aria-label="Facebook"><MessageCircle size={16} /></a><a href="#" aria-label="Instagram"><Camera size={16} /></a><span className="mx-auto h-16 w-px bg-[#d7a84c]" /></div></section>; }
+import { motion } from "framer-motion";
+import {
+  ArrowDown,
+  ArrowRight,
+  Camera,
+  MessageCircle,
+  Phone,
+} from "lucide-react";
+import { company } from "@/data/site-data";
+
+export function Hero() {
+  return (
+    <section id="home" className="relative isolate min-h-[690px] overflow-hidden bg-[#0a1628] text-white md:min-h-[760px]">
+      <Image
+        src={company.heroImage}
+        alt="Building maintenance and construction workers in Qatar"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+      <div
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,13,24,.94)_0%,rgba(5,13,24,.77)_49%,rgba(5,13,24,.27)_100%)]"
+      />
+      <div
+        className="absolute inset-0 bg-[linear-gradient(0deg,rgba(5,13,24,.48),transparent_45%)]"
+      />
+      <div className="relative mx-auto flex min-h-[690px] max-w-7xl items-center px-5 pb-24 pt-20 md:min-h-[760px] md:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-3xl"
+        >
+          <p className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.24em] text-[#e7c475]">
+            <span className="h-px w-9 bg-[#d9ad55]" />{company.tagline}</p>
+          <h1 className="max-w-3xl font-heading text-5xl font-extrabold leading-[1.02] md:text-7xl">
+            Reliable Manpower,<br />
+            <span className="text-[#e4bd69]">Whenever You Need It.</span>
+          </h1>
+          <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">
+            From ongoing contract teams for companies to one-off cleaning and
+            repairs for homes and shops, we make it easier to get the right help
+            in Doha, including Sundays and weekends.
+          </p>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Link
+              href="#services"
+              className="inline-flex min-h-12 items-center gap-3 bg-[#d9ad55] px-6 py-4 text-[10px] font-extrabold uppercase tracking-[0.13em] text-[#0a1628] transition hover:bg-white"
+            >
+              Explore Services <ArrowDown size={15} />
+            </Link>
+            <a
+              href={company.whatsappLink}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-12 items-center gap-3 border border-white/55 px-6 py-4 text-[10px] font-extrabold uppercase tracking-[0.13em] text-white transition hover:border-[#d9ad55] hover:bg-white/10"
+            >
+              Get a Quote <ArrowRight size={15} className="text-[#e4bd69]" />
+            </a>
+          </div>
+        </motion.div>
+      </div>
+      <div
+        className="absolute bottom-7 left-5 z-10 flex items-center gap-4 border-l-2 border-[#d9ad55] bg-[#0a1628]/90 px-5 py-4 md:bottom-10 md:left-[max(2rem,calc((100vw-80rem)/2))]"
+      >
+        <span className="font-heading text-3xl font-extrabold text-[#e4bd69]">7</span>
+        <span className="max-w-32 text-[9px] font-bold uppercase leading-4 tracking-[0.13em] text-white/75">
+          Days a week<br />on-call support
+        </span>
+      </div>
+      <div className="absolute right-4 top-1/2 z-10 hidden -translate-y-1/2 flex-col gap-2 sm:flex">
+        <a
+          href={company.whatsappLink}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="WhatsApp"
+          className="grid size-11 place-items-center border border-white/25 bg-[#0a1628]/65 text-white backdrop-blur transition hover:bg-[#d9ad55] hover:text-[#0a1628]"
+        >
+          <MessageCircle size={18} />
+        </a>
+        <a
+          href={company.phoneLink}
+          aria-label="Call Power Wadi Al Ram"
+          className="grid size-11 place-items-center border border-white/25 bg-[#0a1628]/65 text-white backdrop-blur transition hover:bg-[#d9ad55] hover:text-[#0a1628]"
+        >
+          <Phone size={18} />
+        </a>
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Facebook"
+          className="grid size-11 place-items-center border border-white/25 bg-[#0a1628]/65 text-white backdrop-blur transition hover:bg-[#d9ad55] hover:text-[#0a1628]"
+        >
+          <span className="font-heading text-xl font-extrabold">f</span>
+        </a>
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Instagram"
+          className="grid size-11 place-items-center border border-white/25 bg-[#0a1628]/65 text-white backdrop-blur transition hover:bg-[#d9ad55] hover:text-[#0a1628]"
+        >
+          <Camera size={18} />
+        </a>
+      </div>
+    </section>
+  );
+}

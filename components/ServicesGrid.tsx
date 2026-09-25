@@ -1,7 +1,34 @@
 "use client";
-import Image from "next/image";
+
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import { services } from "@/data/site-data";
-import { SectionHeading } from "@/components/SectionHeading";
-export function ServicesGrid() { return <section id="services" className="bg-[#f4f5f2] px-6 py-24 md:py-32"><div className="mx-auto max-w-7xl"><div className="mb-14 flex items-end justify-between gap-8"><SectionHeading eyebrow="What we do" title="Built for the work that matters." /><p className="hidden max-w-xs text-sm leading-7 text-[#637083] md:block">One partner, multiple capabilities, and the confidence that every detail is being handled.</p></div><div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{services.map((service, index) => <motion.article key={service.title} initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-70px" }} transition={{ duration: .55, delay: index * .08 }} className="group bg-white"><div className="relative aspect-[1.35] overflow-hidden"><Image src={service.image} alt={service.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition duration-700 group-hover:scale-105" /><div className="absolute inset-0 bg-[#0a1628]/10 transition group-hover:bg-[#0a1628]/35" /><span className="absolute left-5 top-5 bg-[#d7a84c] px-3 py-2 text-[9px] font-bold uppercase tracking-widest text-[#0a1628]">0{index + 1}</span></div><div className="p-7"><p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#b68731]">{service.eyebrow}</p><h3 className="font-heading text-2xl font-bold text-[#0a1628]">{service.title}</h3><p className="mt-3 text-sm leading-6 text-[#637083]">{service.description}</p><a href="#contact" className="mt-6 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#0a1628]">Learn more <ArrowUpRight size={14} className="text-[#b68731]" /></a></div></motion.article>)}</div></div></section>; }
+import { serviceNames } from "@/data/site-data";
+
+export function ServicesGrid() {
+  return (
+    <section id="services" className="bg-white px-5 py-16 md:px-8 md:py-24">
+      <div className="service-panel mx-auto max-w-7xl bg-[#0a0a0a] px-7 py-10 text-white sm:px-10 md:px-16 md:py-14">
+        <div className="grid gap-8 md:grid-cols-[.75fr_1.25fr] md:gap-12">
+          <div>
+            <h2 className="font-heading text-4xl font-extrabold leading-none text-[#e8c14b] sm:text-5xl md:text-6xl">SERVICES</h2>
+            <div className="mt-4 h-px w-24 bg-[#e8c14b]" />
+          </div>
+          <ul className="space-y-3 md:space-y-3.5">
+            {serviceNames.map((service, index) => (
+              <motion.li
+                key={service}
+                initial={{ opacity: 0, x: 16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.35, delay: index * 0.055 }}
+                className="flex items-baseline gap-3 text-lg font-bold leading-snug text-white sm:text-xl md:text-2xl"
+              >
+                <span aria-hidden="true" className="shrink-0 text-[0.72em] text-[#e8c14b]">▶</span>
+                <span>{service}</span>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}

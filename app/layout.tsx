@@ -6,14 +6,23 @@ const bodyFont = DM_Sans({ subsets: ["latin"], variable: "--font-body" });
 const headingFont = Manrope({ subsets: ["latin"], variable: "--font-heading" });
 
 export const metadata: Metadata = {
-  title: "Asteria Contracting & Trading | Qatar",
-  description: "Asteria Contracting & Trading delivers people, projects and procurement solutions across Qatar.",
-  openGraph: { title: "Asteria Contracting & Trading", description: "Built for the work that matters.", type: "website" },
+  metadataBase: new URL("https://powerwadialram.com"),
+  title: "Power Wadi Al Ram | Manpower & Building Maintenance in Qatar",
+  description:
+    "Power Wadi Al Ram Building Maintenance W.L.L provides contract manpower, on-demand cleaning, and building maintenance across Doha, Qatar.",
+  openGraph: {
+    title: "Power Wadi Al Ram Building Maintenance W.L.L",
+    description: "Manpower & Building Maintenance, On Your Schedule",
+    url: "https://powerwadialram.com",
+    siteName: "Power Wadi Al Ram",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en"><body className={`${bodyFont.variable} ${headingFont.variable}`}>{children}</body>
+    <html lang="en">
+      <body className={`${bodyFont.variable} ${headingFont.variable}`}>{children}</body>
     </html>
   );
 }
