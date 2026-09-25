@@ -1,0 +1,7 @@
+"use client";
+import Image from "next/image";
+import { useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowRight } from "lucide-react";
+export function CTABanner() { const ref = useRef<HTMLDivElement>(null); useLayoutEffect(() => { gsap.registerPlugin(ScrollTrigger); const ctx = gsap.context(() => { gsap.to(".parallax-image", { yPercent: 15, ease: "none", scrollTrigger: { trigger: ref.current, scrub: true } }); }, ref); return () => ctx.revert(); }, []); return <section ref={ref} className="relative h-[430px] overflow-hidden"><Image src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2200&q=85" alt="Asteria city development" fill sizes="100vw" className="parallax-image scale-110 object-cover" /><div className="absolute inset-0 bg-[#07111f]/75" /><div className="relative mx-auto flex h-full max-w-7xl items-center px-6"><div className="max-w-3xl"><p className="mb-5 text-[11px] font-bold uppercase tracking-[0.28em] text-[#e0b75d]">One team. One direction.</p><h2 className="font-heading text-4xl font-bold leading-tight tracking-[-0.03em] text-white md:text-6xl">How Asteria provide solutions for a better tomorrow?</h2><a href="#contact" className="mt-8 inline-flex items-center gap-3 border-b border-[#d7a84c] pb-3 text-[11px] font-bold uppercase tracking-[0.2em] text-[#e0b75d]">Let&apos;s work together <ArrowRight size={16} /></a></div></div></section>; }

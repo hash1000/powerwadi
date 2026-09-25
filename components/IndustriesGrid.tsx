@@ -1,0 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
+import { industries } from "@/data/site-data";
+import { SectionHeading } from "@/components/SectionHeading";
+export function IndustriesGrid() { return <section className="mx-auto max-w-7xl px-6 py-24 md:py-32"><div className="grid gap-14 lg:grid-cols-[.7fr_1.3fr]"><SectionHeading eyebrow="Where we work" title="Deep expertise, across every environment." /><div className="grid gap-x-10 gap-y-9 sm:grid-cols-2">{industries.map((industry, index) => { const Icon = industry.icon; return <motion.div key={industry.title} initial={{ opacity: 0, scale: .9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: .45, delay: index * .06 }} className="flex gap-5 border-b border-[#e2e6e9] pb-7"><div className="grid h-12 w-12 shrink-0 place-items-center border border-[#d7a84c] text-[#b68731]"><Icon size={21} strokeWidth={1.5} /></div><div><h3 className="font-heading text-xl font-bold text-[#0a1628]">{industry.title}</h3><p className="mt-2 text-sm leading-6 text-[#637083]">{industry.description}</p></div></motion.div>; })}</div></div></section>; }

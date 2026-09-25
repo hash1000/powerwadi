@@ -1,0 +1,3 @@
+import * as React from "react";
+import { cn } from "@/lib/utils";
+export function Button({ className, variant = "gold", ...props }: React.ButtonHTMLAttributes<HTMLButtonElement> & { variant?: "gold" | "dark" | "outline" }) { return <button className={cn("inline-flex items-center justify-center gap-3 rounded-none px-6 py-3 text-[11px] font-bold uppercase tracking-[0.22em] transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-60", variant === "gold" && "bg-[#d7a84c] text-[#0a1628] hover:bg-[#edc46c]", variant === "dark" && "bg-[#0a1628] text-white hover:bg-[#162b47]", variant === "outline" && "border border-[#d7a84c] text-[#d7a84c] hover:bg-[#d7a84c] hover:text-[#0a1628]", className)} {...props} />; }

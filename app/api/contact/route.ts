@@ -1,0 +1,4 @@
+import { NextResponse } from "next/server";
+import { Resend } from "resend";
+import { ContactEmail } from "@/lib/email-template";
+export async function POST(request: Request) { try { const body = await request.json(); const apiKey = process.env.RESEND_API_KEY; const to = process.env.CONTACT_TO_EMAIL; if (!apiKey || !to) return NextResponse.json({ message: "Email service is not configured" }, { status: 503 }); const resend = new Resend(apiKey); const { error } = await resend.emails.send({ from: "Asteria Website <onboarding@resend.dev>", to, replyTo: body.email, subject: `New enquiry: ${body.subject}`, react: ContactEmail(body) }); if (error) return NextResponse.json({ message: error.message }, { status: 500 }); return NextResponse.json({ success: true }); } catch { return NextResponse.json({ message: "Invalid request" }, { status: 400 }); } }
