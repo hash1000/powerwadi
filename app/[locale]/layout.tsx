@@ -6,6 +6,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import type { ReactNode } from "react";
 import { Toaster } from "sonner";
 import { routing } from "@/i18n/routing";
+import { ContactActions } from "@/components/ContactActions";
 import "../globals.css";
 
 const bodyFont = DM_Sans({ subsets: ["latin"], variable: "--font-body", display: "swap", preload: false });
@@ -65,6 +66,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
+          <ContactActions />
           <Toaster position={isArabic ? "bottom-left" : "bottom-right"} richColors dir={isArabic ? "rtl" : "ltr"} />
         </NextIntlClientProvider>
       </body>

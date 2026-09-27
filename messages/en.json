@@ -26,6 +26,13 @@
     "facebook": "Facebook",
     "instagram": "Instagram"
   },
+  "contactActions": {
+    "floatingLabel": "Chat with us on WhatsApp",
+    "mobileActionsLabel": "Quick contact options",
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "quote": "Get a Quote"
+  },
   "hero": {
     "tagline": "Manpower & Building Maintenance, On Your Schedule",
     "headline": "Reliable Manpower,\nWhenever You Need It.",
@@ -37,6 +44,13 @@
     "badgeText": "Days a week\non-call support",
     "whatsappLabel": "WhatsApp Power Wadi Al Ram",
     "callLabel": "Call Power Wadi Al Ram"
+  },
+  "trust": {
+    "label": "Service commitments",
+    "sameDay": "Same-Day Response",
+    "vetted": "Vetted Workers",
+    "weekends": "Weekend & Sunday Availability",
+    "pricing": "Transparent Pricing"
   },
   "about": {
     "eyebrow": "Welcome to Power Wadi Al Ram",
@@ -79,6 +93,17 @@
       "it": { "title": "IT Services", "description": "Basic IT setup and support for homes, shops, and offices." }
     }
   },
+  "process": {
+    "eyebrow": "Simple from start to finish",
+    "title": "How It Works",
+    "steps": {
+      "contact": { "title": "Contact Us", "description": "Call, WhatsApp, or send us a message through the form." },
+      "understand": { "title": "We Understand Your Need", "description": "We clarify the job, timing, location, and the support you need." },
+      "assign": { "title": "We Assign the Right Worker/Technician", "description": "We match your request with a suitable worker or technician." },
+      "complete": { "title": "Job Gets Done", "description": "The assigned team completes the agreed work." },
+      "followUp": { "title": "Follow-Up & Support", "description": "We check in and remain available for further support." }
+    }
+  },
   "banner": {
     "eyebrow": "A schedule that works for you",
     "title": "Manpower and Maintenance Solutions Built Around Your Schedule.",
@@ -93,6 +118,27 @@
       "workers": { "title": "Vetted & Reliable Workers", "description": "People selected to match the work and setting." },
       "response": { "title": "Fast Response Times", "description": "A clear point of contact when a job cannot wait." },
       "pricing": { "title": "Transparent Pricing", "description": "Know the scope and cost before work begins." }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Client feedback",
+    "title": "What Clients Say",
+    "placeholderNotice": "Placeholder reviews: replace with verified client feedback before launch.",
+    "items": {
+      "reviewOne": { "name": "[Client Name] — Doha", "quote": "[Add real client feedback here]" },
+      "reviewTwo": { "name": "[Client Name] — Doha", "quote": "[Add real client feedback here]" },
+      "reviewThree": { "name": "[Client Name] — Doha", "quote": "[Add real client feedback here]" }
+    }
+  },
+  "faq": {
+    "eyebrow": "Frequently asked questions",
+    "title": "Good to Know",
+    "items": {
+      "pricing": { "question": "How does pricing and getting a quote work?", "answer": "[Confirm the pricing model, minimum charges, and quote process with the client.]" },
+      "response": { "question": "How quickly can you respond?", "answer": "We aim to respond as quickly as possible. [Add a confirmed response-time commitment, if applicable.]" },
+      "weekends": { "question": "Are you available on weekends and Sundays?", "answer": "Yes. On-demand cleaning and maintenance requests can be arranged for Sundays and weekends, subject to availability." },
+      "coverage": { "question": "Which areas of Qatar do you cover?", "answer": "[Confirm the cities and areas served across Qatar with the client.]" },
+      "customers": { "question": "Can both companies and individuals book your services?", "answer": "Yes. Companies can arrange ongoing manpower contracts, and individuals can request one-off cleaning, maintenance, or technician visits." }
     }
   },
   "contact": {
