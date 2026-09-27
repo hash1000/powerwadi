@@ -9,7 +9,7 @@ export function ServicesGrid() {
   const locale = useLocale();
   const serviceNames = t.raw("list") as string[];
   return (
-    <section id="services" className="bg-white px-5 py-16 md:px-8 md:py-24">
+    <section id="services" className="bg-white px-5 py-12 md:px-8 md:py-16">
       <div className="service-panel mx-auto max-w-7xl bg-[#0a0a0a] px-7 py-10 text-white sm:px-10 md:px-16 md:py-14">
         <div className="grid gap-8 md:grid-cols-[.75fr_1.25fr] md:gap-12">
           <div>

@@ -5,6 +5,18 @@
     "openGraphTitle": "Power Wadi Al Ram Building Maintenance W.L.L",
     "openGraphDescription": "Manpower & Building Maintenance, On Your Schedule"
   },
+  "pageMeta": {
+    "about": { "title": "About Us | Power Wadi Al Ram", "description": "Meet the team and learn about Power Wadi Al Ram Building Maintenance W.L.L in Qatar." },
+    "services": { "title": "Services | Power Wadi Al Ram", "description": "Explore manpower supply, cleaning, AC, plumbing, electrical, painting, and building maintenance services in Qatar." },
+    "industries": { "title": "Industries | Power Wadi Al Ram", "description": "Manpower and building maintenance support for offices, retail, homes, hospitality, construction, and IT in Qatar." },
+    "contact": { "title": "Contact Us | Power Wadi Al Ram", "description": "Contact Power Wadi Al Ram in Doha for contract manpower or on-demand building maintenance and cleaning." }
+  },
+  "pageHeaders": {
+    "about": { "eyebrow": "About the Company", "title": "People and building support, on your schedule.", "description": "A Qatar-based partner for ongoing manpower contracts and responsive maintenance for individual jobs." },
+    "services": { "eyebrow": "Our Capabilities", "title": "The right help for the work at hand.", "description": "Explore practical workforce and building services for businesses, homes, and shops." },
+    "industries": { "eyebrow": "Who We Support", "title": "Support across the places Qatar works and lives.", "description": "Flexible staffing and maintenance support shaped around each customer and setting." },
+    "contact": { "eyebrow": "Get in Touch", "title": "Tell us what you need.", "description": "Contact our Doha team about a staffing contract or a single on-demand job." }
+  },
   "brand": {
     "wordmark": "POWER WADI AL RAM",
     "subtitle": "BUILDING MAINTENANCE W.L.L",
@@ -64,10 +76,28 @@
     "onDemand": "Single on-demand jobs",
     "managerLabel": "General Manager",
     "managerName": "Muhammad Mudassar",
-    "link": "Explore what we do"
+    "link": "Explore what we do",
+    "teaser": "Contract staffing and on-demand building maintenance for workplaces, homes, and shops, including weekends.",
+    "storyTitle": "A practical partner for people and places",
+    "storyBody": "Power Wadi Al Ram Building Maintenance W.L.L works with businesses that need dependable ongoing manpower and with individuals who need a single job handled without delay. From scheduled staffing to a weekend repair, we make it easier to arrange the right support around the way people work and live.",
+    "missionTitle": "Our approach",
+    "missionBody": "Listen carefully, agree on the work and timing, then provide suitable people and practical maintenance support. Clear communication and dependable follow-through guide every request.",
+    "legalTitle": "Company Details",
+    "legalNameLabel": "Legal Name",
+    "crLabel": "C.R. No.",
+    "locationLabel": "Location",
+    "managerDescription": "Muhammad Mudassar leads day-to-day coordination and works with customers to understand staffing and maintenance requirements."
+    ,"location": "Doha, Qatar"
   },
   "services": {
     "title": "Services",
+    "eyebrow": "What we do",
+    "previewTitle": "Support for every kind of job",
+    "previewDescription": "Arrange ongoing contract teams or book a single maintenance job around your schedule.",
+    "viewAll": "View All Services",
+    "requestService": "Request this service",
+    "includedLabel": "What's included",
+    "whoForLabel": "Who it's for",
     "list": [
       "Manpower Supply",
       "All Building Maintenance",
@@ -78,19 +108,28 @@
       "Painting"
     ],
     "alsoAvailable": "Also available",
-    "additional": ["Basic IT Services"]
+    "additional": ["Basic IT Services"],
+    "cards": {
+      "manpower": { "title": "Manpower Supply", "description": "Contract staffing support for teams that need reliable people on an ongoing schedule.", "included": ["Staffing matched to the requested role", "Coordination around site and work schedules", "Support for ongoing contract requirements"], "whoFor": "Offices, retail, construction sites, and hotels." },
+      "maintenance": { "title": "All Building Maintenance", "description": "Responsive building maintenance to help commercial and residential spaces stay ready for use.", "included": ["Routine maintenance support", "Practical repair coordination", "On-demand maintenance requests"], "whoFor": "Businesses, property managers, and households." },
+      "cleaning": { "title": "Cleaning Service", "description": "One-off or planned cleaning for offices, shops, and homes, including weekend requests.", "included": ["Office and workplace cleaning", "Retail and shop cleaning", "Home cleaning by arrangement"], "whoFor": "Companies and individuals who need a clean, ready-to-use space." },
+      "ac": { "title": "AC Installation", "description": "Air-conditioning installation and servicing arranged to suit the space and the request.", "included": ["Installation support", "Servicing visits", "Technician callouts by arrangement"], "whoFor": "Homes, offices, shops, and other occupied buildings." },
+      "plumbing": { "title": "Plumbing & Drainage", "description": "Practical help with plumbing and drainage issues in homes and commercial spaces.", "included": ["Plumbing repair requests", "Drainage issue support", "One-off or scheduled work"], "whoFor": "Households, shops, offices, and building operators." },
+      "electricalPainting": { "title": "Electrical Work & Painting", "description": "Electrical work and painting services for upkeep, repair, and refresh projects.", "included": ["Electrical work by arrangement", "Interior and exterior painting requests", "Planned or one-off visits"], "whoFor": "Homes, retail spaces, offices, and building sites." }
+    }
   },
   "industries": {
     "eyebrow": "Who we support",
     "title": "People and places, across Qatar.",
     "intro": "From ongoing workforce needs to a one-off weekend callout, our services fit the way each space operates.",
+    "viewAll": "Explore all industries",
     "items": {
-      "offices": { "title": "Corporate Offices", "description": "Contract staffing, cleaning, and maintenance for productive workplaces." },
-      "retail": { "title": "Retail & Shops", "description": "Flexible teams and responsive upkeep around trading hours." },
-      "homes": { "title": "Residential Homes", "description": "On-demand cleaning and quick repairs for everyday home needs." },
-      "hospitality": { "title": "Hospitality", "description": "Dependable staff and maintenance support for hotels and guest spaces." },
-      "construction": { "title": "Construction Sites", "description": "Manpower support to help active sites keep work moving." },
-      "it": { "title": "IT Services", "description": "Basic IT setup and support for homes, shops, and offices." }
+      "offices": { "title": "Corporate Offices", "description": "Contract staffing, cleaning, and maintenance for productive workplaces.", "detail": "Keep day-to-day operations supported with ongoing staffing arrangements, scheduled cleaning, and responsive help with building upkeep." },
+      "retail": { "title": "Retail & Shops", "description": "Flexible teams and responsive upkeep around trading hours.", "detail": "Arrange staff support and cleaning around opening hours, with maintenance help for shop floors and back-of-house areas." },
+      "homes": { "title": "Residential Homes", "description": "On-demand cleaning and quick repairs for everyday home needs.", "detail": "Book a one-off cleaner, AC visit, plumbing repair, or other practical maintenance request for the home." },
+      "hospitality": { "title": "Hospitality", "description": "Dependable staff and maintenance support for hotels and guest spaces.", "detail": "Support guest-ready spaces with workforce assistance, cleaning arrangements, and building maintenance coordination." },
+      "construction": { "title": "Construction Sites", "description": "Manpower support to help active sites keep work moving.", "detail": "Request workers for ongoing site needs and coordinate maintenance support around the active work schedule." },
+      "it": { "title": "IT Services", "description": "Basic IT setup and support for homes, shops, and offices.", "detail": "Arrange basic IT assistance for common setup and support needs in a home or workplace." }
     }
   },
   "process": {
@@ -123,6 +162,7 @@
   "testimonials": {
     "eyebrow": "Client feedback",
     "title": "What Clients Say",
+    "more": "More about us",
     "placeholderNotice": "Placeholder reviews: replace with verified client feedback before launch.",
     "items": {
       "reviewOne": { "name": "[Client Name] — Doha", "quote": "[Add real client feedback here]" },
@@ -133,6 +173,7 @@
   "faq": {
     "eyebrow": "Frequently asked questions",
     "title": "Good to Know",
+    "more": "All FAQs",
     "items": {
       "pricing": { "question": "How does pricing and getting a quote work?", "answer": "[Confirm the pricing model, minimum charges, and quote process with the client.]" },
       "response": { "question": "How quickly can you respond?", "answer": "We aim to respond as quickly as possible. [Add a confirmed response-time commitment, if applicable.]" },
@@ -167,6 +208,9 @@
     "whatsapp": "WhatsApp",
     "hoursTitle": "Office Hours",
     "hours": "On-call availability, 7 days a week, including Sundays and weekends.",
+    "mapTitle": "Find Us in Doha",
+    "mapDescription": "Map preview centered on central Doha.",
+    "mapNote": "Map pin uses placeholder Doha city-centre coordinates; exact office coordinates are pending confirmation.",
     "validation": {
       "name": "Please enter your name",
     "nameTooLong": "Please keep your name under 100 characters",
@@ -193,6 +237,12 @@
       "errorTitle": "Message not sent",
       "directEmail": "Please email us directly at {email}."
     }
+  },
+  "ui": {
+    "loading": "Loading page",
+    "notFoundTitle": "Page not found",
+    "notFoundDescription": "The page you are looking for may have moved or is no longer available.",
+    "homeLink": "Return home"
   },
   "footer": {
     "wordmark": "POWER WADI AL RAM",

@@ -49,7 +49,7 @@ export function Hero() {
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Link
-              href="#services"
+              href="/services"
               className="inline-flex min-h-12 items-center gap-3 bg-[#d9ad55] px-6 py-4 text-[10px] font-extrabold uppercase tracking-[0.13em] text-[#0a1628] transition hover:bg-white"
             >
               {t("servicesCta")} <ArrowDown size={15} />

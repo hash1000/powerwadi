@@ -4,8 +4,9 @@ import { motion } from "framer-motion";
 import { industries } from "@/data/site-data";
 import { SectionHeading } from "@/components/SectionHeading";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
-export function IndustriesGrid() {
+export function IndustriesGrid({ preview = false }: { preview?: boolean }) {
   const t = useTranslations("industries");
   return (
     <section id="industries" className="bg-white px-5 py-20 md:px-8 md:py-28">
@@ -15,9 +16,9 @@ export function IndustriesGrid() {
           <p className="mt-6 max-w-sm text-sm leading-7 text-[#637083]">{t("intro")}</p>
         </div>
         <div className="grid gap-x-8 sm:grid-cols-2">
-          {industries.map((industry, index) => {
+          {industries.slice(0, preview ? 3 : undefined).map((industry, index) => {
             const Icon = industry.icon;
-            const item = t.raw(`items.${industry.key}`) as { title: string; description: string };
+            const item = t.raw(`items.${industry.key}`) as { title: string; description: string; detail: string };
             return (
               <motion.article
                 key={industry.key}
@@ -35,13 +36,14 @@ export function IndustriesGrid() {
                     {item.title}
                   </h3>
                   <p className="mt-2 text-xs leading-5 text-[#637083]">
-                    {item.description}
+                    {preview ? item.description : item.detail}
                   </p>
                 </div>
               </motion.article>
             );
           })}
         </div>
+        {preview && <Link href="/industries" className="mt-7 inline-flex border-b border-[#d9ad55] pb-2 text-[10px] font-extrabold uppercase tracking-[0.13em] text-[#0a1628]">{t("viewAll")}</Link>}
       </div>
     </section>
   );

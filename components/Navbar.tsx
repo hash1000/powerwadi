@@ -5,12 +5,12 @@ import { useLocale, useTranslations } from "next-intl";
 import { Camera, Menu, Phone, X } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { Link } from "@/i18n/navigation";
-import { company } from "@/data/site-data";
+import { company, pageRoutes } from "@/data/site-data";
 
 function Brand() {
   const t = useTranslations("brand");
   return (
-    <Link href="/#home" aria-label={t("homeLabel")} className="flex min-w-0 items-center gap-3">
+    <Link href="/" aria-label={t("homeLabel")} className="flex min-w-0 items-center gap-3">
       <span className="grid size-11 shrink-0 place-items-center border border-[#d9ad55] font-heading text-2xl font-extrabold text-[#d9ad55]">P</span>
       <span className="min-w-0 font-heading text-sm font-extrabold leading-tight text-white sm:text-base">
         {t("wordmark")}
@@ -26,7 +26,6 @@ export function Navbar() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const links = ["home", "about", "services", "industries", "contact"] as const;
   const switchLocale = locale === "en" ? "ar" : "en";
   const changeLocale = () => {
     router.replace(`${pathname}${window.location.hash}` as typeof pathname, { locale: switchLocale });
@@ -51,7 +50,10 @@ export function Navbar() {
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-8">
           <Brand />
           <div className="hidden items-center gap-7 lg:flex">
-            {links.map((key) => <Link key={key} href={`/#${key}`} className="text-[11px] font-bold uppercase tracking-[0.14em] text-white/75 transition hover:text-[#d9ad55]">{t(key)}</Link>)}
+            {pageRoutes.map(({ key, href }) => {
+              const active = pathname === href;
+              return <Link key={key} href={href} aria-current={active ? "page" : undefined} className={`border-b-2 py-2 text-[11px] font-bold uppercase tracking-[0.14em] transition ${active ? "border-[#d9ad55] text-[#e4bd69]" : "border-transparent text-white/75 hover:text-[#d9ad55]"}`}>{t(key)}</Link>;
+            })}
             <a href={company.whatsappLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#d9ad55] px-5 py-3 text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#0a1628] transition hover:bg-white">{t("quote")}</a>
           </div>
           <div className="flex items-center gap-4 lg:hidden">
@@ -60,7 +62,10 @@ export function Navbar() {
           </div>
         </nav>
         {open && <div className="border-t border-white/10 bg-[#0a1628] px-5 py-4 lg:hidden">
-          {links.map((key) => <Link onClick={() => setOpen(false)} key={key} href={`/#${key}`} className="block border-b border-white/10 py-3 text-xs font-bold uppercase tracking-[0.14em] text-white/75">{t(key)}</Link>)}
+          {pageRoutes.map(({ key, href }) => {
+            const active = pathname === href;
+            return <Link onClick={() => setOpen(false)} key={key} href={href} aria-current={active ? "page" : undefined} className={`block border-b py-3 text-xs font-bold uppercase tracking-[0.14em] ${active ? "border-[#d9ad55] text-[#e4bd69]" : "border-white/10 text-white/75"}`}>{t(key)}</Link>;
+          })}
           <a href={company.whatsappLink} target="_blank" rel="noreferrer" className="mt-4 block bg-[#d9ad55] px-5 py-3 text-center text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#0a1628]">{t("quote")}</a>
         </div>}
       </header>

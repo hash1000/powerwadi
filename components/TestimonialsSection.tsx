@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { testimonials } from "@/data/site-data";
+import { Link } from "@/i18n/navigation";
 
-export function TestimonialsSection() {
+export function TestimonialsSection({ compact = false }: { compact?: boolean }) {
   const t = useTranslations("testimonials");
   return (
     <section className="bg-white px-5 py-20 md:px-8 md:py-24">
@@ -14,7 +15,7 @@ export function TestimonialsSection() {
           <p className="max-w-md text-xs leading-5 text-[#80652b]">{t("placeholderNotice")}</p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
-          {testimonials.map(({ key }, index) => {
+          {testimonials.slice(0, compact ? 2 : undefined).map(({ key }, index) => {
             const item = t.raw(`items.${key}`) as { name: string; quote: string };
             return (
               <motion.figure key={key} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.4, delay: index * 0.08 }} className="flex min-h-48 flex-col justify-between border border-[#e5e7e4] border-s-2 border-s-[#d9ad55] bg-[#fbfbfa] p-6">
@@ -24,6 +25,7 @@ export function TestimonialsSection() {
             );
           })}
         </div>
+        {compact && <Link href="/about" className="mt-6 inline-flex border-b border-[#d9ad55] pb-2 text-[10px] font-extrabold uppercase tracking-[0.13em] text-[#0a1628]">{t("more")}</Link>}
       </div>
     </section>
   );

@@ -5,8 +5,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { faqItems } from "@/data/site-data";
+import { Link } from "@/i18n/navigation";
 
-export function FAQSection() {
+export function FAQSection({ limit }: { limit?: number }) {
   const t = useTranslations("faq");
   const [openItem, setOpenItem] = useState<string | null>(null);
   return (
@@ -17,7 +18,7 @@ export function FAQSection() {
           <h2 className="font-heading text-3xl font-extrabold leading-tight text-[#0a1628] md:text-5xl">{t("title")}</h2>
         </div>
         <div className="divide-y divide-[#d9ddda] border-y border-[#d9ddda]">
-          {faqItems.map(({ key }, index) => {
+          {faqItems.slice(0, limit).map(({ key }, index) => {
             const item = t.raw(`items.${key}`) as { question: string; answer: string };
             const expanded = openItem === key;
             const panelId = `faq-panel-${key}`;
@@ -40,6 +41,7 @@ export function FAQSection() {
             );
           })}
         </div>
+        {limit && <Link href="/contact" className="mt-5 inline-flex border-b border-[#d9ad55] pb-2 text-[10px] font-extrabold uppercase tracking-[0.13em] text-[#0a1628]">{t("more")}</Link>}
       </div>
     </section>
   );

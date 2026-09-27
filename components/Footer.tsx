@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Camera, MessageCircle, Phone } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { company } from "@/data/site-data";
+import { company, pageRoutes } from "@/data/site-data";
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -9,12 +9,12 @@ export function Footer() {
   const services = useTranslations("services");
   const serviceNames = services.raw("list") as string[];
   const additionalServices = services.raw("additional") as string[];
-  const navigation = ["about", "services", "industries", "contact"] as const;
+  const navigation = pageRoutes.filter(({ key }) => key !== "home");
   return (
     <footer className="bg-[#07111f] px-5 pb-6 pt-14 text-white md:px-8 md:pt-16">
       <div className="mx-auto grid max-w-7xl gap-10 border-b border-white/10 pb-12 sm:grid-cols-2 lg:grid-cols-[1.35fr_.7fr_1fr_1fr]">
         <div>
-          <Link href="/#home" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <span className="grid size-11 place-items-center border border-[#d9ad55] font-heading text-2xl font-extrabold text-[#d9ad55]">P</span>
             <span className="font-heading text-sm font-extrabold leading-tight">{t("wordmark")}<span className="mt-1 block text-[8px] font-semibold uppercase tracking-[0.15em] text-white/55">{t("subtitle")}</span></span>
           </Link>
@@ -27,11 +27,11 @@ export function Footer() {
         </div>
         <div>
           <h3 className="mb-5 text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#e4bd69]">{t("quickLinks")}</h3>
-          <div className="space-y-3 text-xs text-white/60">{navigation.map((key) => <Link key={key} className="block transition hover:text-white" href={`/#${key}`}>{nav(key)}</Link>)}</div>
+          <div className="space-y-3 text-xs text-white/60">{navigation.map(({ key, href }) => <Link key={key} className="block transition hover:text-white" href={href}>{nav(key)}</Link>)}</div>
         </div>
         <div>
           <h3 className="mb-5 text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#e4bd69]">{t("services")}</h3>
-          <div className="space-y-3 text-xs text-white/60">{serviceNames.map((service) => <Link key={service} className="block transition hover:text-white" href="/#services">{service}</Link>)}{additionalServices.map((service) => <Link key={service} className="block transition hover:text-white" href="/#industries">{service}</Link>)}</div>
+          <div className="space-y-3 text-xs text-white/60">{serviceNames.map((service) => <Link key={service} className="block transition hover:text-white" href="/services">{service}</Link>)}{additionalServices.map((service) => <Link key={service} className="block transition hover:text-white" href="/industries">{service}</Link>)}</div>
         </div>
         <div>
           <h3 className="mb-5 text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#e4bd69]">{t("contact")}</h3>

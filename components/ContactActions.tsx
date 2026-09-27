@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { MessageCircle, Phone, Send } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { company } from "@/data/site-data";
 
 export function ContactActions() {
@@ -27,9 +28,9 @@ export function ContactActions() {
         <a href={company.whatsappLink} target="_blank" rel="noreferrer" className="flex min-h-14 flex-col items-center justify-center gap-1 border-x border-white/10 px-1 text-[10px] font-bold text-[#72e29a] focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#d9ad55]">
           <MessageCircle size={17} aria-hidden="true" />{t("whatsapp")}
         </a>
-        <a href="#contact" className="flex min-h-14 flex-col items-center justify-center gap-1 px-1 text-[10px] font-bold focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#d9ad55]">
+        <Link href="/contact" className="flex min-h-14 flex-col items-center justify-center gap-1 px-1 text-[10px] font-bold focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#d9ad55]">
           <Send size={16} aria-hidden="true" />{t("quote")}
-        </a>
+        </Link>
       </nav>
     </>
   );
