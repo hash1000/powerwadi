@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/data/site-config";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: "https://powerwadialram.com/sitemap.xml",
-    host: "https://powerwadialram.com",
+    sitemap: `${siteConfig.website}/sitemap.xml`,
+    host: siteConfig.website,
   };
 }

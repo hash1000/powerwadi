@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { ContactEmail } from "@/lib/email-template";
 import { createContactSchema } from "@/lib/contact-schema";
+import { siteConfig } from "@/data/site-config";
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -22,24 +23,29 @@ export async function POST(request: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO_EMAIL;
-  if (!apiKey || !to) {
+  const from = process.env.RESEND_FROM_EMAIL;
+  if (!apiKey || !from) {
     return NextResponse.json({ message: messages.contact.api.notConfigured }, { status: 503 });
   }
 
   try {
     const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL ?? "Power Wadi Al Ram <onboarding@resend.dev>",
-      to,
+      from,
+      to: siteConfig.primaryEmail,
+      cc: siteConfig.secondaryEmail,
       replyTo: result.data.email,
       subject: messages.contact.emailSubject.replace("{subject}", result.data.subject),
-      react: ContactEmail(result.data, messages.brand.legalName, messages.contact.fields, messages.contact.emailPreview, requestedLocale),
+      react: ContactEmail(result.data, siteConfig.legalName, messages.contact.fields, messages.contact.emailPreview, requestedLocale),
     });
 
-    if (error) return NextResponse.json({ message: messages.contact.api.sendFailed }, { status: 502 });
+    if (error) {
+      console.error("Resend contact email failed:", error.message);
+      return NextResponse.json({ message: messages.contact.api.sendFailed }, { status: 502 });
+    }
     return NextResponse.json({ success: true, message: messages.contact.toast.successDescription });
-  } catch {
+  } catch (error) {
+    console.error("Resend contact email request failed:", error instanceof Error ? error.message : "Unknown error");
     return NextResponse.json({ message: messages.contact.api.sendFailed }, { status: 500 });
   }
 }

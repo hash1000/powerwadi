@@ -4,13 +4,13 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail, MapPin, Phone, Send, Clock3 } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/SectionHeading";
-import { company } from "@/data/site-data";
+import { siteConfig } from "@/data/site-config";
 import { createContactSchema, type ContactFormData } from "@/lib/contact-schema";
 
 export function ContactSection() {
@@ -44,7 +44,7 @@ export function ContactSection() {
       toast.success(t("toast.successTitle"), { description: t("toast.successDescription") });
       reset();
     } catch {
-      toast.error(t("toast.errorTitle"), { description: serverError ?? t("toast.directEmail", { email: company.email }) });
+      toast.error(t("toast.errorTitle"), { description: serverError ?? t("toast.directEmail", { email: siteConfig.primaryEmail }) });
     } finally {
       setLoading(false);
     }
@@ -66,17 +66,18 @@ export function ContactSection() {
           </form>
         </div>
         <aside className="bg-[#0a1628] p-7 text-white md:p-9">
-          <p className="text-[9px] font-extrabold uppercase tracking-[0.19em] text-[#e4bd69]">Power Wadi Al Ram</p>
+          <p className="text-[9px] font-extrabold uppercase tracking-[0.19em] text-[#e4bd69]">{siteConfig.brandName}</p>
           <h3 className="mt-3 font-heading text-2xl font-extrabold">{t("infoTitle")}</h3>
           <div className="mt-8 space-y-6">
-            <a href="https://maps.google.com/?q=Doha%2C+Qatar" target="_blank" rel="noreferrer" className="flex gap-4 text-sm leading-6 text-white/75 hover:text-white"><MapPin size={18} className="mt-1 shrink-0 text-[#e4bd69]" /><span>{t("address")}</span></a>
-            <a href={`mailto:${company.email}`} className="flex gap-4 break-all text-sm text-white/75 hover:text-white"><Mail size={18} className="shrink-0 text-[#e4bd69]" /><bdi dir="ltr">{company.email}</bdi></a>
-            <a href={company.phoneLink} className="flex gap-4 text-sm text-white/75 hover:text-white"><Phone size={18} className="shrink-0 text-[#e4bd69]" /><span>{t("call")}: <bdi dir="ltr">{company.phone}</bdi></span></a>
-            <a href={company.whatsappLink} target="_blank" rel="noreferrer" className="flex gap-4 text-sm text-white/75 hover:text-white"><Send size={18} className="shrink-0 text-[#e4bd69]" /><span>{t("whatsapp")}: <bdi dir="ltr">{company.whatsapp}</bdi></span></a>
+            <div className="flex gap-4 text-sm leading-6 text-white/75"><MapPin size={18} className="mt-1 shrink-0 text-[#e4bd69]" /><span>{siteConfig.address}</span></div>
+            <a href={`mailto:${siteConfig.primaryEmail}`} className="flex gap-4 break-all text-sm text-white/75 hover:text-white"><Mail size={18} className="shrink-0 text-[#e4bd69]" /><bdi dir="ltr">{siteConfig.primaryEmail}</bdi></a>
+            <a href={`mailto:${siteConfig.secondaryEmail}`} className="flex gap-4 break-all text-sm text-white/75 hover:text-white"><Mail size={18} className="shrink-0 text-[#e4bd69]" /><bdi dir="ltr">{siteConfig.secondaryEmail}</bdi></a>
+            <a href={siteConfig.phoneLink} className="flex gap-4 text-sm text-white/75 hover:text-white"><Phone size={18} className="shrink-0 text-[#e4bd69]" /><span>{t("call")}: <bdi dir="ltr">{siteConfig.phone}</bdi></span></a>
+            <a href={siteConfig.whatsappLink} target="_blank" rel="noopener noreferrer" className="flex gap-4 text-sm text-white/75 hover:text-white"><Send size={18} className="shrink-0 text-[#e4bd69]" /><span>{t("whatsapp")}: <bdi dir="ltr">{siteConfig.whatsappNumber}</bdi></span></a>
           </div>
-          <div className="mt-9 border-t border-white/15 pt-6">
-            <p className="text-[9px] font-extrabold uppercase tracking-[0.15em] text-[#e4bd69]">{t("hoursTitle")}</p>
-            <p className="mt-3 flex gap-3 text-sm leading-6 text-white/75"><Clock3 size={17} className="mt-0.5 shrink-0 text-[#e4bd69]" />{t("hours")}</p>
+          <div className="mt-8 border-t border-white/15 pt-6">
+            <a href={siteConfig.mapsLink} target="_blank" rel="noopener noreferrer" className="inline-flex border-b border-[#d9ad55] pb-2 text-sm font-bold text-[#e4bd69]">{t("directions")}</a>
+            <a href={siteConfig.mapsLink} target="_blank" rel="noopener noreferrer" className="ms-5 inline-flex border-b border-white/35 pb-2 text-sm font-bold text-white/75 hover:text-white">{t("openMaps")}</a>
           </div>
         </aside>
       </div>

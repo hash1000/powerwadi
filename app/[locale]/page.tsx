@@ -1,18 +1,16 @@
 import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { WelcomeSection } from "@/components/WelcomeSection";
 import { ServiceCards } from "@/components/ServiceCards";
 import { IndustriesGrid } from "@/components/IndustriesGrid";
-import { TrustStrip } from "@/components/TrustStrip";
 import { ProcessSection } from "@/components/ProcessSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { FAQSection } from "@/components/FAQSection";
+import { ClientsSection } from "@/components/ClientsSection";
+import { LocationSection } from "@/components/LocationSection";
 import { CTABanner } from "@/components/CTABanner";
 import { ContactSection } from "@/components/ContactSection";
-import { Footer } from "@/components/Footer";
+import { FAQSection } from "@/components/FAQSection";
 import { routing } from "@/i18n/routing";
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
@@ -22,20 +20,18 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
   return (
     <>
-      <Navbar />
       <main>
         <Hero />
-        <TrustStrip />
         <WelcomeSection compact />
         <ServiceCards preview />
-        <IndustriesGrid preview />
+        <IndustriesGrid />
         <ProcessSection />
+        <ClientsSection />
+        <LocationSection />
         <CTABanner />
-        <TestimonialsSection compact />
         <ContactSection />
-        <FAQSection limit={4} />
+        <FAQSection />
       </main>
-      <Footer />
     </>
   );
 }

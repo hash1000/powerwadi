@@ -1,34 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Power Wadi Al Ram
 
-## Getting Started
+Website for Power Wadi Al Ram Building Maintenance W.L.L.
 
-First, run the development server:
+## Development
+
+Install dependencies and start the Next.js development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the production build and lint checks with `npm run build` and `npm run lint`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contact form
 
-## Learn More
+The contact form uses Resend. Configure `RESEND_API_KEY` and `RESEND_FROM_EMAIL` in the deployment environment. The sender address must be verified with Resend. Messages are sent to `contact@powerwadialram.com` with `info@powerwadialram.com` copied; no API credentials are stored in the repository.
 
-To learn more about Next.js, take a look at the following resources:
+## Photography
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The optimized WebP images in `public/images/heroes/` are local derivatives of the Unsplash photographs already used by the earlier site design. Unsplash's license does not require attribution: https://unsplash.com/license. Replace them with company-owned photography when available.
