@@ -190,6 +190,21 @@
     "quickLinks": "Quick Links",
     "services": "Services",
     "contact": "Contact",
-    "directions": "Get Directions"
+    "directions": "Get Directions",
+    "websiteOffer": "Website package offer"
+  },
+  "websiteOffer": {
+    "title": "Business Website Package — QAR 999",
+    "eyebrow": "Website Design Offer",
+    "heading": "A Professional Website for Your Business",
+    "description": "A business or company portfolio website package.",
+    "includesLabel": "Package includes",
+    "inclusions": {
+      "portfolioWebsite": "Professional business or company portfolio website",
+      "businessDomain": "Business domain",
+      "hostingYear": "One year of web hosting"
+    },
+    "priceLabel": "Package price",
+    "whatsappCta": "Enquire on WhatsApp"
   }
 }

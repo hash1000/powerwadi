@@ -26,7 +26,7 @@ export function Footer() {
         </div>
         <div>
           <h3 className="mb-5 text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#e4bd69]">{t("quickLinks")}</h3>
-          <div className="space-y-3 text-xs text-white/60">{navigation.map(({ key, href }) => <Link key={key} className="block transition hover:text-white" href={key === "clients" ? "/#contact" : href}>{nav(key)}</Link>)}</div>
+          <div className="space-y-3 text-xs text-white/60">{navigation.map(({ key, href }) => <Link key={key} className="block transition hover:text-white" href={key === "clients" ? "/#contact" : href}>{nav(key)}</Link>)}<Link className="block transition hover:text-white" href="/website-offer">{t("websiteOffer")}</Link></div>
         </div>
         <div>
           <h3 className="mb-5 text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#e4bd69]">{t("services")}</h3>

@@ -190,6 +190,21 @@
     "quickLinks": "روابط سريعة",
     "services": "الخدمات",
     "contact": "التواصل",
-    "directions": "الاتجاهات"
+    "directions": "الاتجاهات",
+    "websiteOffer": "عرض باقة الموقع الإلكتروني"
+  },
+  "websiteOffer": {
+    "title": "باقة موقع للأعمال — ٩٩٩ ريال قطري",
+    "eyebrow": "عرض تصميم موقع",
+    "heading": "موقع احترافي لأعمالك",
+    "description": "باقة موقع إلكتروني تعريفي للأعمال أو للشركات.",
+    "includesLabel": "تشمل الباقة",
+    "inclusions": {
+      "portfolioWebsite": "موقع إلكتروني احترافي تعريفي للأعمال أو للشركات",
+      "businessDomain": "نطاق تجاري",
+      "hostingYear": "استضافة لمدة سنة واحدة"
+    },
+    "priceLabel": "سعر الباقة",
+    "whatsappCta": "استفسر عبر واتساب"
   }
 }
